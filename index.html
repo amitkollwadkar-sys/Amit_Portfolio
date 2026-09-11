@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modern personal portfolio website" />
+  <title>Amit Kolwadkar from VScod — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <a href="#home" class="logo">AM<span>.</span></a>
+
+    <nav id="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" aria-label="Toggle theme">☾</button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section id="home" class="hero section">
+      <div class="hero-content reveal">
+        <p class="eyebrow">AVAILABLE FOR WORK</p>
+
+        <h1>
+          Building digital
+          <span>experiences</span>
+          that matter.
+        </h1>
+
+        <p class="hero-text">
+          I'm Alex Morgan, a creative developer and designer focused on
+          building beautiful, fast and user-friendly digital products.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            View My Work →
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Let's Talk
+          </a>
+        </div>
+
+        <div class="social-links">
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Dribbble">Dribbble</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="profile-card">
+          <div class="profile-glow"></div>
+
+          <div class="profile-avatar">
+            <span>AM</span>
+          </div>
+
+          <div class="floating-card card-one">
+            <span>✦</span>
+            <div>
+              <strong>5+</strong>
+              <small>Years Experience</small>
+            </div>
+          </div>
+
+          <div class="floating-card card-two">
+            <span>↗</span>
+            <div>
+              <strong>40+</strong>
+              <small>Projects Completed</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">ABOUT ME</p>
+        <h2>A little bit about <span>me.</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a multidisciplinary developer and designer who enjoys turning
+            complex problems into simple, elegant digital experiences.
+          </p>
+
+          <p>
+            My approach combines thoughtful design, clean code and a strong
+            understanding of the people who use the products I build.
+          </p>
+
+          <p>
+            When I'm not coding, you'll usually find me exploring new ideas,
+            learning new technologies or working on side projects.
+          </p>
+        </div>
+
+        <div class="about-stats reveal">
+          <div class="stat">
+            <strong>05+</strong>
+            <span>Years Experience</span>
+          </div>
+
+          <div class="stat">
+            <strong>40+</strong>
+            <span>Projects</span>
+          </div>
+
+          <div class="stat">
+            <strong>25+</strong>
+            <span>Happy Clients</span>
+          </div>
+
+          <div class="stat">
+            <strong>12</strong>
+            <span>Technologies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section skills-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">MY TOOLKIT</p>
+        <h2>Skills & <span>technologies.</span></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">⌘</div>
+          <h3>Frontend</h3>
+          <p>
+            Creating responsive and interactive interfaces with modern
+            frontend technologies.
+          </p>
+
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">◈</div>
+          <h3>Backend</h3>
+          <p>
+            Building reliable APIs and scalable server-side applications.
+          </p>
+
+          <div class="tags">
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+            <span>REST API</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">✦</div>
+          <h3>Design</h3>
+          <p>
+            Designing clean interfaces and experiences with a focus on
+            usability and visual hierarchy.
+          </p>
+
+          <div class="tags">
+            <span>Figma</span>
+            <span>UI/UX</span>
+            <span>Wireframing</span>
+            <span>Prototyping</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="section-heading projects-heading reveal">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>Featured <span>projects.</span></h2>
+        </div>
+
+        <a href="#" class="text-link">View all projects →</a>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card project-large reveal">
+          <div class="project-image gradient-one">
+            <div class="browser-window">
+              <div class="browser-bar">
+                <i></i><i></i><i></i>
+              </div>
+              <div class="mock-content">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <p class="project-type">WEB APPLICATION</p>
+              <h3>FinanceFlow</h3>
+            </div>
+            <a href="#" class="project-arrow">↗</a>
+          </div>
+
+          <p>
+            A modern personal finance dashboard designed to make money
+            management simple and intuitive.
+          </p>
+
+          <div class="project-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-image gradient-two">
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <strong>WAVE</strong>
+                <span>Creative Studio</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <p class="project-type">BRAND / WEBSITE</p>
+              <h3>Wave Studio</h3>
+            </div>
+            <a href="#" class="project-arrow">↗</a>
+          </div>
+
+          <p>
+            A bold digital identity and website for a creative design studio.
+          </p>
+
+          <div class="project-tags">
+            <span>Figma</span>
+            <span>Web Design</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-image gradient-three">
+            <div class="dashboard-mockup">
+              <div class="dash-sidebar"></div>
+              <div class="dash-main">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <p class="project-type">SAAS PRODUCT</p>
+              <h3>Taskly</h3>
+            </div>
+            <a href="#" class="project-arrow">↗</a>
+          </div>
+
+          <p>
+            A productivity platform helping remote teams organize their work.
+          </p>
+
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>UI/UX</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section experience-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">MY JOURNEY</p>
+        <h2>Experience & <span>education.</span></h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2024 — Present</div>
+          <div class="timeline-content">
+            <h3>Senior Frontend Developer</h3>
+            <p class="company-name">Creative Digital Studio</p>
+            <p>
+              Leading frontend development and creating scalable design
+              systems for web applications.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2022 — 2024</div>
+          <div class="timeline-content">
+            <h3>Frontend Developer</h3>
+            <p class="company-name">Digital Labs</p>
+            <p>
+              Built responsive websites and applications for startups and
+              growing businesses.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2018 — 2022</div>
+          <div class="timeline-content">
+            <h3>Bachelor of Computer Science</h3>
+            <p class="company-name">University</p>
+            <p>
+              Studied software engineering, algorithms, databases and
+              human-computer interaction.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+      <div class="contact-box reveal">
+
+        <div class="contact-content">
+          <p class="eyebrow">GET IN TOUCH</p>
+
+          <h2>
+            Have a project<br />
+            <span>in mind?</span>
+          </h2>
+
+          <p>
+            I'm always open to discussing new projects, creative ideas or
+            opportunities to be part of your vision.
+          </p>
+
+          <a href="mailto:hello@example.com" class="email-link">
+            hello@example.com ↗
+          </a>
+        </div>
+
+        <form id="contact-form">
+          <div class="input-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Your name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Tell me about your project..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Send Message →
+          </button>
+
+          <p id="form-message"></p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">AM<span>.</span></div>
+
+    <p>© 2026 Alex Morgan. All rights reserved.</p>
+
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
