@@ -75,3 +75,34 @@ contactForm.addEventListener("submit", (event) => {
 
   contactForm.reset();
 });
+
+
+// Network dashboard frame filter
+const frameFilter = document.getElementById("frame-filter");
+if (frameFilter) {
+  frameFilter.addEventListener("change", () => {
+    const selected = frameFilter.value;
+    const rows = document.querySelectorAll(".network-inventory-table tbody tr");
+    let visible = 0;
+    rows.forEach((row) => {
+      const show = selected === "all" || row.dataset.frame === selected;
+      row.hidden = !show;
+      if (show) visible += 1;
+    });
+    const count = document.getElementById("inventory-count");
+    if (count) count.textContent = `${visible} entries`;
+    const frame1 = selected === "frame2" ? 0 : 3;
+    const frame2 = selected === "frame1" ? 0 : 3;
+    const total = selected === "all" ? 6 : 3;
+    const serverKpi = document.getElementById("kpi-servers");
+    const frame1Count = document.getElementById("frame1-count");
+    const frame2Count = document.getElementById("frame2-count");
+    const frame1Bar = document.getElementById("frame1-bar");
+    const frame2Bar = document.getElementById("frame2-bar");
+    if (serverKpi) serverKpi.textContent = total;
+    if (frame1Count) frame1Count.textContent = frame1;
+    if (frame2Count) frame2Count.textContent = frame2;
+    if (frame1Bar) frame1Bar.style.width = total ? `${(frame1 / total) * 100}%` : "0%";
+    if (frame2Bar) frame2Bar.style.width = total ? `${(frame2 / total) * 100}%` : "0%";
+  });
+}
