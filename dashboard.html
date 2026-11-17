@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="High-level infrastructure inventory dashboard based on a sample network design workbook.">
+<title>Infrastructure Overview — Amit Kolwadkar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--surface:#111;--surface2:#171717;--text:#f5f5f5;--muted:#9a9a9a;--border:rgba(255,255,255,.1);--accent:#c8ff3d;--accent2:#a7d82e}
+.light{--bg:#f6f6f4;--surface:#fff;--surface2:#eeeeeb;--text:#111;--muted:#686868;--border:rgba(0,0,0,.1)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,sans-serif;transition:.25s}a{color:inherit;text-decoration:none}button,select,input{font:inherit}
+header{height:76px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc((100% - 1180px)/2));position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);z-index:5}
+.logo{font-size:24px;font-weight:800}.logo span,.accent{color:var(--accent)}.header-right{display:flex;align-items:center;gap:12px}.back,.theme{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 15px;border-radius:30px}
+main{width:min(1180px,calc(100% - 40px));margin:auto;padding:65px 0 90px}.eyebrow{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:2px;margin:0 0 12px}.intro{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}.intro h1{font-size:clamp(36px,6vw,60px);letter-spacing:-3px;line-height:1.03;margin:0}.intro p.sub{color:var(--muted);max-width:600px;margin:15px 0 0}.source-pill{white-space:nowrap;color:var(--muted);border:1px solid var(--border);padding:9px 13px;border-radius:30px;font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px}.kpi-label{font-size:12px;color:var(--muted)}.kpi-value{font-size:36px;font-weight:800;letter-spacing:-2px;margin:7px 0 0}.kpi-note{font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin:16px 0}.card h2{font-size:16px;margin:0 0 5px}.card .hint{color:var(--muted);font-size:12px;margin:0 0 20px}
+.mix{display:grid;gap:17px}.mix-row{display:grid;grid-template-columns:110px 1fr 25px;align-items:center;gap:12px;font-size:12px}.track{height:9px;background:var(--surface2);border-radius:20px;overflow:hidden}.fill{height:100%;border-radius:20px;background:var(--accent)}.mix-row b{text-align:right}
+.frame-chart{display:grid;grid-template-columns:1fr 1fr;gap:12px}.frame-box{padding:18px;background:var(--surface2);border:1px solid var(--border);border-radius:14px}.frame-box strong{font-size:13px}.frame-box .count{font-size:29px;font-weight:800;display:block;margin:6px 0}.frame-box small{color:var(--muted)}
+.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin:26px 0 14px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:8px 13px;border-radius:30px;cursor:pointer;font-size:12px}.filter.active{background:var(--accent);border-color:var(--accent);color:#080808;font-weight:700}
+.search{background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:10px 15px;color:var(--text);min-width:220px;outline:none}
+.table-wrap{overflow:auto}.inventory{width:100%;border-collapse:collapse;min-width:520px}.inventory th,.inventory td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--border);font-size:13px}.inventory th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px}.inventory td:last-child{color:var(--muted)}.tag{display:inline-block;padding:4px 9px;border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:30px}
+.note{margin-top:20px;padding:17px 20px;border:1px solid var(--border);border-radius:14px;color:var(--muted);font-size:12px}.note strong{color:var(--text)}
+footer{border-top:1px solid var(--border);padding:25px max(22px,calc((100% - 1180px)/2));color:var(--muted);font-size:12px;display:flex;justify-content:space-between}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.intro{display:block}.source-pill{display:inline-block;margin-top:18px}}
+@media(max-width:480px){main{width:calc(100% - 28px);padding-top:42px}.kpis{gap:9px}.card{padding:17px}.kpi-value{font-size:30px}.header-right{gap:6px}.back,.theme{padding:8px 11px;font-size:12px}.search{width:100%}footer{display:block;text-align:center}footer span{display:block;margin:5px}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="index.html">AM<span>.</span></a><div class="header-right"><a class="back" href="index.html#projects">← Portfolio</a><button class="theme" id="theme" aria-label="Toggle theme">☾</button></div></header>
+<main>
+<section class="intro"><div><p class="eyebrow">PROJECT SNAPSHOT / INFRASTRUCTURE</p><h1>Network design<br><span class="accent">overview.</span></h1><p class="sub">A high-level view of the infrastructure inventory in the sample network design workbook, organized into core compute and supporting equipment.</p></div><span class="source-pill">Source: Sample.xlsx · Network Design</span></section>
+<section class="kpis" aria-label="Summary metrics">
+<div class="card"><div class="kpi-label">Core servers</div><div class="kpi-value">6</div><div class="kpi-note">Application, database and VIO roles</div></div>
+<div class="card"><div class="kpi-label">Server frames</div><div class="kpi-value">2</div><div class="kpi-note">Frame 1 and Frame 2 PROD AUX</div></div>
+<div class="card"><div class="kpi-label">Support PCs</div><div class="kpi-value">2</div><div class="kpi-note">Listed support workstations</div></div>
+<div class="card"><div class="kpi-label">Other devices</div><div class="kpi-value">4</div><div class="kpi-note">HMC and DIGI entries</div></div>
+</section>
+<section class="grid">
+<div class="card"><h2>Core server composition</h2><p class="hint">Count by server role, based on the inventory rows</p><div class="mix">
+<div class="mix-row"><span>App Server</span><div class="track"><div class="fill" style="width:100%"></div></div><b>2</b></div>
+<div class="mix-row"><span>DB Server</span><div class="track"><div class="fill" style="width:100%"></div></div><b>2</b></div>
+<div class="mix-row"><span>VIO</span><div class="track"><div class="fill" style="width:100%"></div></div><b>2</b></div>
+</div></div>
+<div class="card"><h2>Servers by frame</h2><p class="hint">Core server entries grouped by physical frame</p><div class="frame-chart">
+<div class="frame-box"><strong>FRAME 1</strong><span class="count">3</span><small>1 app · 1 database · 1 VIO</small></div>
+<div class="frame-box"><strong>FRAME 2 PROD AUX</strong><span class="count">3</span><small>1 app · 1 database · 1 VIO</small></div>
+</div></div>
+</section>
+<section class="card"><h2>Supporting equipment</h2><p class="hint">Additional inventory entries outside the six core servers</p><div class="mix">
+<div class="mix-row"><span>Support PCs</span><div class="track"><div class="fill" style="width:100%"></div></div><b>2</b></div>
+<div class="mix-row"><span>HMC</span><div class="track"><div class="fill" style="width:100%"></div></div><b>2</b></div>
+<div class="mix-row"><span>DIGI</span><div class="track"><div class="fill" style="width:100%"></div></div><b>2</b></div>
+</div></section>
+<div class="toolbar"><div class="filters" id="filters"><button class="filter active" data-frame="all">All frames</button><button class="filter" data-frame="FRAME 1">Frame 1</button><button class="filter" data-frame="FRAME 2 PROD AUX">Frame 2 PROD AUX</button></div><input id="search" class="search" type="search" placeholder="Search role or frame…" aria-label="Search inventory"></div>
+<section class="card"><h2>Core server inventory</h2><p class="hint">Hostnames and network addressing are intentionally excluded from this public portfolio view.</p><div class="table-wrap"><table class="inventory"><thead><tr><th>Server role</th><th>Frame</th><th>Count</th><th>Category</th></tr></thead><tbody id="rows"></tbody></table></div><div id="empty" class="empty" hidden>No matching inventory rows.</div></section>
+<div class="note"><strong>Data handling:</strong> This portfolio dashboard displays aggregated inventory only. It does not expose hostnames, IP addresses, DNS records, gateway details, or implementation/topology instructions from the source workbook.</div>
+</main>
+<footer><span>© 2026 Amit Kolwadkar</span><span>Infrastructure overview · Portfolio project</span></footer>
+<script>
+const inventory=[
+{role:"App Server",frame:"FRAME 1",count:1,category:"Compute"},
+{role:"DB Server",frame:"FRAME 1",count:1,category:"Compute"},
+{role:"VIO",frame:"FRAME 1",count:1,category:"Virtual I/O"},
+{role:"App Server",frame:"FRAME 2 PROD AUX",count:1,category:"Compute"},
+{role:"DB Server",frame:"FRAME 2 PROD AUX",count:1,category:"Compute"},
+{role:"VIO",frame:"FRAME 2 PROD AUX",count:1,category:"Virtual I/O"}
+];
+let activeFrame="all";
+const tbody=document.getElementById("rows"),search=document.getElementById("search"),empty=document.getElementById("empty");
+function render(){const q=search.value.trim().toLowerCase();const filtered=inventory.filter(x=>(activeFrame==="all"||x.frame===activeFrame)&&(!q||(x.role+" "+x.frame+" "+x.category).toLowerCase().includes(q)));tbody.innerHTML=filtered.map(x=>'<tr><td>'+x.role+'</td><td>'+x.frame+'</td><td>'+x.count+'</td><td><span class="tag">'+x.category+'</span></td></tr>').join("");empty.hidden=filtered.length>0;}
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{activeFrame=b.dataset.frame;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));render()}));search.addEventListener("input",render);render();
+const theme=document.getElementById("theme");if(localStorage.getItem("portfolio-theme")==="light"){document.body.classList.add("light");theme.textContent="☀"}theme.addEventListener("click",()=>{document.body.classList.toggle("light");const light=document.body.classList.contains("light");theme.textContent=light?"☀":"☾";localStorage.setItem("portfolio-theme",light?"light":"dark")});
+</script>
+</body></html>
