@@ -976,3 +976,52 @@ footer {
     text-align: center;
   }
 }
+
+
+/* Network design dashboard */
+.network-dashboard-section { border-top: 1px solid var(--border); }
+.dashboard-intro { max-width: 760px; margin-top: 22px; color: var(--muted); font-size: 16px; }
+.network-dashboard-toolbar { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:22px; padding:22px 25px; border:1px solid var(--border); border-radius:18px; background:var(--surface); }
+.network-dashboard-toolbar p { color:var(--muted); font-size:13px; margin-top:5px; }
+.dashboard-overline { color:var(--accent); font-size:10px; font-weight:800; letter-spacing:1.7px; }
+.network-dashboard-toolbar label { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:12px; }
+.network-dashboard-toolbar select { min-width:185px; padding:10px 13px; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:9px; }
+.network-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:16px; }
+.network-kpi,.network-panel { border:1px solid var(--border); border-radius:18px; background:var(--surface); }
+.network-kpi { padding:23px; display:flex; flex-direction:column; align-items:flex-start; }
+.network-kpi-symbol { width:38px; height:38px; display:grid; place-items:center; border-radius:11px; background:rgba(200,255,61,.12); color:var(--accent); font-size:19px; margin-bottom:17px; }
+.network-kpi strong { font-size:34px; line-height:1.1; letter-spacing:-1.5px; }
+.network-kpi > span:not(.network-kpi-symbol) { margin-top:7px; font-size:13px; font-weight:600; }
+.network-kpi small { margin-top:5px; color:var(--muted); font-size:11px; }
+.network-dashboard-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.network-panel { padding:25px; min-width:0; }
+.network-panel-title { display:flex; justify-content:space-between; align-items:center; gap:15px; margin-bottom:25px; }
+.network-panel-title h3 { margin-top:7px; font-size:19px; letter-spacing:-.5px; }
+.network-panel-note { color:var(--muted); font-size:11px; }
+.frame-bars { display:grid; gap:24px; padding:8px 0 12px; }
+.frame-bar-row > div:first-child { display:flex; justify-content:space-between; margin-bottom:10px; font-size:13px; }
+.frame-bar-row strong { font-variant-numeric:tabular-nums; }
+.frame-bar-track { height:10px; overflow:hidden; border-radius:20px; background:var(--surface-2); }
+.frame-bar-track i { display:block; height:100%; border-radius:20px; background:var(--accent); }
+.network-chart-caption { margin-top:17px; color:var(--muted); font-size:11px; line-height:1.6; }
+.network-plane { display:flex; align-items:center; gap:13px; padding:15px 0; border-bottom:1px solid var(--border); }
+.network-plane-icon { width:39px; height:39px; display:grid; place-items:center; border-radius:10px; background:var(--surface-2); color:var(--accent); }
+.network-plane div:nth-child(2) { flex:1; }
+.network-plane strong,.network-plane small { display:block; }
+.network-plane strong { font-size:13px; }
+.network-plane small { color:var(--muted); font-size:10px; margin-top:4px; }
+.network-plane > span { color:var(--muted); font-size:11px; }
+.network-inventory-panel { grid-column:span 2; }
+.inventory-table-wrap { overflow-x:auto; }
+.network-inventory-table { width:100%; border-collapse:collapse; text-align:left; font-size:12px; }
+.network-inventory-table th { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding:0 12px 12px; }
+.network-inventory-table td { padding:13px 12px; border-top:1px solid var(--border); }
+.network-inventory-table td:first-child { color:var(--muted); }
+.inventory-status { display:inline-block; padding:4px 9px; border-radius:20px; color:var(--accent); background:rgba(200,255,61,.1); font-size:10px; }
+.dependency-copy { color:var(--muted); font-size:12px; margin-bottom:15px; }
+.dependency-list { list-style:none; display:grid; gap:12px; }
+.dependency-list li { padding:12px 14px; background:var(--surface-2); border-radius:9px; font-size:12px; }
+.network-dashboard-disclaimer { margin-top:18px; color:var(--muted); font-size:10px; line-height:1.6; }
+.network-inventory-table tr[hidden] { display:none; }
+@media(max-width:850px) { .network-kpis { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:600px) { .network-dashboard-toolbar { align-items:flex-start; flex-direction:column; } .network-dashboard-toolbar label { width:100%; justify-content:space-between; } .network-dashboard-toolbar select { min-width:0; flex:1; } .network-dashboard-grid { grid-template-columns:1fr; } .network-inventory-panel { grid-column:auto; } .network-panel { padding:19px; } }
