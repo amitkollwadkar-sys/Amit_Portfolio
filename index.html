@@ -27,6 +27,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#network-dashboard">Dashboard</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -314,6 +315,116 @@
         </article>
 
       </div>
+    </section>
+
+
+    <!-- Network Design Dashboard -->
+    <section id="network-dashboard" class="section network-dashboard-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">PROJECT SHOWCASE · NETWORK DESIGN</p>
+        <h2>Network infrastructure <span>dashboard.</span></h2>
+        <p class="dashboard-intro">A high-level view of the Network Design worksheet, summarizing the six server records and their two-frame layout.</p>
+      </div>
+
+      <div class="network-dashboard-toolbar reveal">
+        <div>
+          <span class="dashboard-kicker">WORKBOOK OVERVIEW</span>
+          <p>Network Design · Infrastructure inventory</p>
+        </div>
+        <label for="frame-filter">View
+          <select id="frame-filter">
+            <option value="all">All frames</option>
+            <option value="frame1">Frame 1</option>
+            <option value="frame2">Frame 2 · PROD AUX</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="network-kpi-grid">
+        <article class="network-kpi reveal" data-frame="all">
+          <span class="network-kpi-icon">▦</span>
+          <strong id="kpi-servers">6</strong>
+          <span>Server records</span>
+          <small>Listed in the worksheet</small>
+        </article>
+        <article class="network-kpi reveal" data-frame="all">
+          <span class="network-kpi-icon">▤</span>
+          <strong>2</strong>
+          <span>Infrastructure frames</span>
+          <small>Frame 1 and Frame 2 · PROD AUX</small>
+        </article>
+        <article class="network-kpi reveal" data-frame="all">
+          <span class="network-kpi-icon">⇄</span>
+          <strong id="kpi-networks">12</strong>
+          <span>Network entries</span>
+          <small>6 public/hospital + 6 private</small>
+        </article>
+        <article class="network-kpi reveal" data-frame="all">
+          <span class="network-kpi-icon">◉</span>
+          <strong>2</strong>
+          <span>Network segments</span>
+          <small>Public/hospital and private</small>
+        </article>
+      </div>
+
+      <div class="network-dashboard-grid">
+        <article class="network-panel reveal">
+          <div class="network-panel-heading">
+            <div><span class="dashboard-kicker">SERVER DISTRIBUTION</span><h3>Records by frame</h3></div>
+            <span class="panel-caption" id="frame-total-label">6 total</span>
+          </div>
+          <div class="frame-bars" id="frame-bars">
+            <div class="frame-bar-row" data-frame="frame1">
+              <div class="frame-bar-label"><span>Frame 1</span><strong>3</strong></div>
+              <div class="frame-bar-track"><span style="width:50%"></span></div>
+            </div>
+            <div class="frame-bar-row" data-frame="frame2">
+              <div class="frame-bar-label"><span>Frame 2 · PROD AUX</span><strong>3</strong></div>
+              <div class="frame-bar-track"><span style="width:50%"></span></div>
+            </div>
+          </div>
+          <p class="chart-footnote">The source lists three server rows under each frame.</p>
+        </article>
+
+        <article class="network-panel reveal">
+          <div class="network-panel-heading">
+            <div><span class="dashboard-kicker">NETWORK COVERAGE</span><h3>Entries by network</h3></div>
+            <span class="panel-caption">2 per server</span>
+          </div>
+          <div class="network-coverage">
+            <div class="coverage-item">
+              <div class="coverage-icon">↗</div>
+              <div><strong>6</strong><span>Public / hospital network</span></div>
+            </div>
+            <div class="coverage-item">
+              <div class="coverage-icon">⇄</div>
+              <div><strong>6</strong><span>Private network</span></div>
+            </div>
+          </div>
+          <p class="chart-footnote">Each server row contains one entry for each network segment.</p>
+        </article>
+      </div>
+
+      <article class="network-panel inventory-panel reveal">
+        <div class="network-panel-heading">
+          <div><span class="dashboard-kicker">INVENTORY</span><h3>Server register</h3></div>
+          <span class="panel-caption">Identifiers hidden</span>
+        </div>
+        <div class="inventory-table-wrap">
+          <table class="inventory-table">
+            <thead><tr><th>Frame</th><th>Server type label</th><th>Public / hospital</th><th>Private</th></tr></thead>
+            <tbody id="inventory-rows">
+              <tr data-frame="frame1"><td>Frame 1</td><td>One</td><td><span class="network-status">Listed</span></td><td><span class="network-status">Listed</span></td></tr>
+              <tr data-frame="frame1"><td>Frame 1</td><td>Two</td><td><span class="network-status">Listed</span></td><td><span class="network-status">Listed</span></td></tr>
+              <tr data-frame="frame1"><td>Frame 1</td><td>Three</td><td><span class="network-status">Listed</span></td><td><span class="network-status">Listed</span></td></tr>
+              <tr data-frame="frame2"><td>Frame 2 · PROD AUX</td><td>Four</td><td><span class="network-status">Listed</span></td><td><span class="network-status">Listed</span></td></tr>
+              <tr data-frame="frame2"><td>Frame 2 · PROD AUX</td><td>Five</td><td><span class="network-status">Listed</span></td><td><span class="network-status">Listed</span></td></tr>
+              <tr data-frame="frame2"><td>Frame 2 · PROD AUX</td><td>Six</td><td><span class="network-status">Listed</span></td><td><span class="network-status">Listed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="dashboard-footnote">Source: Sample.xlsx · Network Design worksheet. Hostnames, DNS names, IP addresses, netmask values and client-specific notes are intentionally not displayed on this public portfolio page.</p>
+      </article>
     </section>
 
     <!-- Experience -->
